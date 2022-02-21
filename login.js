@@ -29,5 +29,6 @@ function login(){
     })
     .catch( err=>{
         console.dir(err);
+        alert('❌您的帳號密碼錯誤！');
     })
 }
