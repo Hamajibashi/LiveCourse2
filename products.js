@@ -58,27 +58,27 @@ const app = {
                         ]             
                }
            },
-    // methods:{
-    //     checkLogin(){
-    //         function checkLogin(params){
-    //             //#3 取得 Token (僅須設定一次)
-    //             const token = document.cookie.replace(/(?:(?:^|.*;\s*)mylToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-    //             console.log(token);
+    methods:{
+        checkLogin(){
+            function checkLogin(params){
+                //#3 取得 Token (僅須設定一次)
+                const token = document.cookie.replace(/(?:(?:^|.*;\s*)mylToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                console.log(token);
               
-    //             axios.defaults.headers.common['Authorization'] = token;
-    //             //#確認是否登入
-    //             axios.post(`${url}/api/user/check`)
-    //             .then(res=>{
-    //               console.log(res.data);
-    //             })
-    //             .catch(err=>{
-    //               console.log(err);
-    //               alert("您尚未登入！")
-    //               window.location="index.html";
-    //             })
-    //           }
-    //     }
-    // }
+                axios.defaults.headers.common['Authorization'] = token;
+                //#確認是否登入
+                axios.post(`${url}/api/user/check`)
+                .then(res=>{
+                  console.log(res.data);
+                })
+                .catch(err=>{
+                  console.log(err);
+                  alert("您尚未登入！")
+                  window.location="login test.html";
+                })
+              }
+        }
+    }
 }
 
 createApp(app).mount('#app');
