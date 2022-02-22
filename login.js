@@ -24,7 +24,7 @@ const app = {
     })
     .catch( err=>{
         console.dir(err);
-        alert('❌您的帳號或是密碼錯誤！');
+        alert(err.data.message);
     })
         }
     }

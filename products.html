@@ -46,7 +46,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="item in products">
+                  <tr v-for="item in products" :key="item.id">
                     <td width="150">{{ item.title }}</td>
                     <td width="120">
                       {{ item.origin_price }}
@@ -59,7 +59,7 @@
                       <span v-else>未啟用</span>
                     </td>
                     <td width="120">
-                      <button type="button" class="btn btn-primary" @click="temp = item">查看細節</button>
+                      <button type="button" class="btn btn-primary" @click="openProduct(item)">查看細節</button>
                     </td>
                   </tr>
                 </tbody>
@@ -85,8 +85,8 @@
                     </div>
                   </div>
                 </div>
-                <template v-for="images in temp.imagesUrl">
-                  <img :src="images" alt="補充圖片" class="images m-2">
+                <template v-for="(images, id) in temp.imagesUrl" :key="id">
+                  <img v-if="images" :src="images" alt="補充圖片" class="images m-2">
                 </template>
               </template>
               <p class="text-secondary" v-else>請選擇一個商品查看</p>
@@ -94,6 +94,10 @@
           </div>
         </div>
       </div>
+      <!-- axios -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js'
+    integrity='sha512-Xk3wWei2TGrsh9kDSBKUMIjw/86sLUvhtnv9f7fOuIwhhiUTKz8szkWkzHthrM5Bb3Bu9idSzkxOrkzhcneuiw=='
+    crossorigin='anonymous'></script>
       <script src="products.js" type="module"></script>
 </body>
 </html>
